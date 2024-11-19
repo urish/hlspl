@@ -14,7 +14,7 @@ CONST PORTA 0x3B
   WRITE
 :Start
   PUSH 0        ; null terminator
-  PUSH 129      ; !
+  PUSH 129      ; ' '
   PUSH 57       ; L
   PUSH 57       ; L
   PUSH 244      ; E (actually 122, hence we SHR next)
@@ -22,9 +22,6 @@ CONST PORTA 0x3B
   PUSH 116      ; P
   PUSH 109      ; S
 :Wait
-  DUP
-  AND 0
-  XOR
   PUSH PORTA
   WRITE 
   DELAY 250
