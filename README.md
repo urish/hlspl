@@ -71,7 +71,7 @@ Unary arithmetic instructions operate on the top value of the stack, and push th
 ## Control Flow Instructions
 
 - `JMP [label]`: Jump to a label.
-- `LOOP [label]`: Pop a value from the stack, and jump to a label if the value is not zero.
+- `LOOP [label]`: Pop a value from the stack, and compare it to zero. If the value is not zero, decrement it and jump to the given label. If the value is zero, continue to the next instruction.
 - `CALL1 [label]`: Pushes the address of the next instruction to the stack, and jumps to a label.
 - `CALLX [label]`: Same as `CALL1`, first exchanging the top two values of the stack (emitting a `XCHG` instruction).
 
