@@ -1,0 +1,66 @@
+{
+  "name": "hlspl",
+  "version": "1.0.0",
+  "description": "SPELL assembler",
+  "repository": "https://github.com/urish/hlspl",
+  "keywords": [
+    "SPELL",
+    "The Skull",
+    "assembler"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Uri Shaked <uri@wokwi.com>",
+  "license": "MIT",
+  "type": "module",
+  "bin": "./dist/main.js",
+  "module": "./dist/esm/index.js",
+  "typings": "./dist/cjs/index.d.ts",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build",
+    "prepare": "husky",
+    "format:check": "prettier --check src/**/*.{ts,js}",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/node": "^20",
+    "@types/yargs": "^17.0.33",
+    "eslint": "^9.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vitest": "^2.1.5"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.js": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}

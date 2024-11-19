@@ -1,0 +1,16 @@
+; Blink an LED connected to Tiny Tapeout demo board's uio[0] pin
+; Author: Uri Shaked
+; License: Public Domain
+
+.ORIGIN 0
+
+CONST PINB 0x36
+CONST DDRB 0x37
+
+  PUSH 1       ; Set uio[0] as output
+  WRITE DDRB
+:Loop
+  PUSH 1
+  WRITE PINB   ; Toggle uio[0]
+  DELAY 250
+  JMP @Loop
